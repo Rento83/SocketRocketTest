@@ -11,7 +11,7 @@
 #import "TCChatCell.h"
 
 
-#define kConnectionURL @"ws://polar-cliffs-3920.herokuapp.com/websocket"
+#define kConnectionURL @"ws://young-gorge-3558.herokuapp.com/webchat"
 
 @interface TCMessage : NSObject
 
@@ -42,7 +42,7 @@
 - (void)sendMesage:(NSString*)message
 {
     //ここでjson生うち。ダブルコーテーションはバックスラッシュ必須です。
-    NSString *jsonStr = [NSString stringWithFormat:@"[[\"new_message\",{\"data\":{\"name\":\"iOS\",\"body\":\"%@\"}}]]", message];
+    NSString *jsonStr = [NSString stringWithFormat:@"{\"name\":\"Rento-FromiOS\",\"body\":\"%@\"}", message];
     [_webSocket send:jsonStr];
     [_messages addObject:[[TCMessage alloc] initWithMessage:jsonStr fromMe:YES]];
 }
